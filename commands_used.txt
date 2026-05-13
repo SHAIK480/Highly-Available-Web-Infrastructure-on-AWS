@@ -1,0 +1,125 @@
+# AWS Project - Commands Used
+
+# -----------------------------
+# EC2 + NGINX Setup
+# -----------------------------
+
+sudo dnf update -y
+
+sudo dnf install nginx -y
+
+sudo systemctl start nginx
+
+sudo systemctl enable nginx
+
+sudo systemctl status nginx
+
+
+# -----------------------------
+# EFS Setup
+# -----------------------------
+
+sudo dnf install -y amazon-efs-utils
+
+sudo mkdir -p /var/www/html
+
+sudo mount -t efs fs-xxxxxxxx:/ /var/www/html
+
+df -h
+
+
+# -----------------------------
+# Website Configuration
+# -----------------------------
+
+cd /var/www/html
+
+sudo nano index.html
+
+sudo systemctl restart nginx
+
+
+# -----------------------------
+# RDS Connection
+# -----------------------------
+
+sudo dnf install mariadb105 -y
+
+mysql -h <RDS-ENDPOINT> -P 3306 -u admin -p
+
+
+# -----------------------------
+# AMI Creation
+# -----------------------------
+
+# Created AMI from configured EC2 instance
+# Used AMI in Launch Template
+
+
+# -----------------------------
+# Auto Scaling Group
+# -----------------------------
+
+# Created Launch Template
+# Attached Launch Template to Auto Scaling Group
+# Desired Capacity: 2
+# Minimum Capacity: 2
+# Maximum Capacity: 4
+
+
+# -----------------------------
+# Application Load Balancer
+# -----------------------------
+
+# Created Target Group
+# Registered EC2 instances
+# Attached Target Group to ALB
+# Listener Port: 80
+
+
+# -----------------------------
+# CloudFront
+# -----------------------------
+
+# Configured CloudFront distribution
+# Origin configured with ALB DNS
+# Default root object: index.html
+
+
+# -----------------------------
+# S3 Setup
+# -----------------------------
+
+# Created S3 bucket
+# Uploaded reddys.jpg image
+# Configured bucket permissions for access
+
+
+# -----------------------------
+# Verification Commands
+# -----------------------------
+
+curl http://localhost
+
+sudo systemctl status nginx
+
+df -h
+
+ping google.com
+
+
+# -----------------------------
+# Useful Commands
+# -----------------------------
+
+sudo reboot
+
+sudo systemctl restart nginx
+
+sudo systemctl stop nginx
+
+sudo systemctl start nginx
+
+ls
+
+pwd
