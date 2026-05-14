@@ -62,7 +62,7 @@ To avoid unexpected charges after testing, remove resources in this order:
 4. Empty and Delete **S3 Buckets**.
 5. Delete the **VPC** and associated networking resources.
 
-## 🔮 Future Improvements
+## Future Improvements
 * [ ] **Infrastructure as Code:** Migrate manual setup to **Terraform**.
 * [ ] **CI/CD:** Automate NGINX deployments using **GitHub Actions**.
 * [ ] **Monitoring:** Implement **CloudWatch** dashboards for real-time traffic analysis.
