@@ -2,20 +2,20 @@
 [![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Status: Completed](https://img.shields.io/badge/Status-Completed-green.svg?style=for-the-badge)](#)
 
-## 📌 Project Overview
+## Project Overview
 This project demonstrates the deployment of a **highly available, multi-AZ web architecture** on AWS. The system is designed to eliminate single points of failure by distributing traffic across multiple Availability Zones and integrating scalable cloud services for networking, storage, database management, and content delivery.
 
-## 🏗️ Architecture
+## Architecture
 ![Architecture Diagram](./Architecture/architecture.png) 
 *The traffic flow follows a structured path: **DNS** → **CloudFront** → **Application Load Balancer** → **Auto Scaling Group (EC2)**, with data persistence handled by **EFS** and **RDS**.*
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Compute:** Amazon EC2 (Amazon Linux 2023), Auto Scaling Group
 * **Networking:** Amazon VPC, Application Load Balancer (ALB), Amazon Route 53, Amazon CloudFront
 * **Storage & Database:** Amazon S3, Amazon EFS, Amazon RDS MySQL
 * **Security:** IAM, Security Groups
 
-## 📋 Prerequisites
+## Prerequisites
 To replicate this environment, ensure you have:
 * An active **AWS Account**.
 * **IAM Permissions** for VPC, EC2, EFS, RDS, S3, and CloudFront.
@@ -24,7 +24,7 @@ To replicate this environment, ensure you have:
 
 ---
 
-## 🚀 Implementation Steps
+## Implementation Steps
 
 ### 1. Networking & VPC Infrastructure
 * **Provision a Custom VPC:** Create a VPC with CIDR `10.0.0.0/16` and enable DNS Hostnames.
@@ -45,7 +45,7 @@ To replicate this environment, ensure you have:
 
 ---
 
-## 🚧 Challenges & Key Learnings
+## Challenges & Key Learnings
 
 | Challenge | Resolution |
 | :--- | :--- |
@@ -54,7 +54,7 @@ To replicate this environment, ensure you have:
 | **DNS Configuration** | Navigated DuckDNS limitations by using Route 53 to manage testing for custom domain routing. |
 | **Security Rules** | Implemented strict Security Group rules to restrict RDS MySQL access solely to the EC2 security group. |
 
-## 🧹 Cleanup (Avoiding AWS Charges)
+## Cleanup (Avoiding AWS Charges)
 To avoid unexpected charges after testing, remove resources in this order:
 1. Disable and Delete **CloudFront Distribution**.
 2. Delete **Auto Scaling Group** and **ALB**.
